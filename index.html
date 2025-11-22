@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Backoffice | Gestión de Proyectos</title>
+    <link rel="stylesheet" href="styles.css"> 
+</head>
+<body>
+
+    <div id="register" class="view">
+        <div class="view-container">
+            <h1>Crear Cuenta</h1>
+            <form id="registerForm" method="post">
+                <div class="form-group">
+                    <label for="reg-name">Nombre de Usuario</label>
+                    <input type="text" id="reg-name" name="name" required placeholder="Tu Nombre">
+                </div>
+                
+                <div class="form-group">
+                    <label for="reg-itsonId">ID ITSON</label>
+                    <input type="text" id="reg-itsonId" name="itsonId" required placeholder="6 caracteres numéricos" maxlength="6">
+                </div>
+                
+                <div class="form-group">
+                    <label for="reg-email">Correo Electrónico</label>
+                    <input type="email" id="reg-email" name="email" required placeholder="tu.correo@ejemplo.com">
+                </div>
+                <div class="form-group">
+                    <label for="reg-password">Contraseña</label>
+                    <input type="password" id="reg-password" name="password" required placeholder="Mínimo 8 caracteres">
+                </div>
+                <button type="submit" class="btn btn-primary">
+                    Registrarse y Acceder
+                </button>
+                <div id="registerMessage" style="color: var(--danger-color); margin-top: 10px; font-weight: bold;"></div>
+            </form>
+
+            <p class="link-switch">
+                ¿Ya tienes una cuenta? 
+                <a href="#login">Iniciar Sesión</a>
+            </p>
+        </div>
+    </div>
+
+
+    <div id="login" class="view">
+        <div class="view-container">
+            <h1>Iniciar Sesión</h1>
+            <form id="loginForm" method="post">
+                <div class="form-group">
+                    <label for="log-email">Correo Electrónico</label>
+                    <input type="email" id="log-email" name="email" required placeholder="tu.correo@ejemplo.com">
+                </div>
+                <div class="form-group">
+                    <label for="log-password">Contraseña</label>
+                    <input type="password" id="log-password" name="password" required placeholder="Contraseña">
+                </div>
+
+                <button type="submit" class="btn btn-primary">
+                    Iniciar Sesión
+                </button>
+                <div id="loginMessage" style="color: var(--danger-color); margin-top: 10px; font-weight: bold;"></div>
+            </form>
+
+            <p class="link-switch">
+                ¿Aún no tienes cuenta? 
+                <a href="#register">Regístrate aquí</a>
+            </p>
+        </div>
+    </div>
+
+
+    <div id="home" class="view">
+        <div class="view-container dashboard-container">
+            <header style="text-align: left; margin-bottom: 30px;">
+                <h1>Panel de Proyectos 📝</h1>
+                <p class="welcome-message">Gestiona aquí tus proyectos registrados.</p>
+            </header>
+
+            <button id="addProjectBtn" class="btn btn-primary" style="width: auto; margin-bottom: 20px;">
+                ➕ Agregar Nuevo Proyecto
+            </button>
+
+            <div id="addProjectFormContainer" style="display: none; background: #fff; padding: 20px; border-radius: 8px; margin-bottom: 20px; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
+                <h3>Añadir Proyecto</h3>
+                <form id="projectForm" data-project-id="">
+                    <div class="form-group">
+                        <label for="project-name">Título del Proyecto</label>
+                        <input type="text" id="project-name" required placeholder="Mi sitio web personal">
+                    </div>
+                    <div class="form-group">
+                        <label for="project-description">Descripción</label>
+                        <textarea id="project-description" rows="3" required placeholder="Breve descripción del proyecto..."></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Guardar Proyecto</button>
+                    <div id="projectMessage" style="margin-top: 10px; font-weight: bold;"></div>
+                </form>
+            </div>
+
+            <h2 style="text-align: left; margin-bottom: 15px; color: #333;">Proyectos Registrados</h2>
+            <div id="projectsPanel" class="stat-cards">
+                <p style="text-align: center; color: #6C757D;">Cargando proyectos...</p>
+            </div>
+
+            <a href="#login" class="btn btn-logout">
+                Cerrar Sesión
+            </a>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
